@@ -12,6 +12,7 @@ import pl.markowski.edoctor.service.VisitService;
 import pl.markowski.edoctor.utils.EDoctorConstants;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -39,6 +40,7 @@ public class VisitServiceImpl implements VisitService {
         List<Visit> visitsByWantedDay = repository.findAllByDateAndDoctor_Id(visit.getDate(), visit.getDoctor().getId());
 
         return visitsByWantedDay.stream()
+                .filter(v -> !Objects.equals(visit.getId(), v.getId()))
                 .filter(v -> visit.getTime().isAfter(v.getTime().minusMinutes(EDoctorConstants.VISIT_DURATION)))
                 .filter(v -> visit.getTime().isBefore(v.getTime().plusMinutes(EDoctorConstants.VISIT_DURATION)))
                 .findFirst().isEmpty();
