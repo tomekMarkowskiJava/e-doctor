@@ -1,10 +1,18 @@
 package pl.markowski.edoctor.service;
 
-import pl.markowski.edoctor.model.entity.Visit;
+import pl.markowski.edoctor.model.dto.VisitDto;
+
+import java.util.List;
 
 public interface VisitService {
 
-    public Visit saveVisit(Visit visit);
-    public void deleteVisit(Long visitId);
-    public Visit updateVisit(Visit visit);
+    VisitDto saveVisit(VisitDto visit);
+
+    void deleteVisit(Long visitId);
+
+    VisitDto updateVisit(VisitDto visit);
+
+    List<VisitDto> getVisitsForPatient(Long patientId);
+
+    List<VisitDto> getVisits();
 }

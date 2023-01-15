@@ -13,9 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import java.sql.Time;
 import java.sql.Date;
+import java.time.LocalTime;
 
 @Entity
 @Getter
@@ -33,16 +32,16 @@ public class Visit {
     private Date date;
 
     @Column
-    private Time time;
+    private LocalTime time;
 
     @Column
     private String roomNumber;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     private Doctor doctor;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id", referencedColumnName = "id")
     private Patient patient;
 
@@ -50,7 +49,7 @@ public class Visit {
         this.date = date;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 }
