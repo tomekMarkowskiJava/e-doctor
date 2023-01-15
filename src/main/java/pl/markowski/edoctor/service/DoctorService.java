@@ -1,8 +1,14 @@
 package pl.markowski.edoctor.service;
 
-import pl.markowski.edoctor.model.entity.Doctor;
+import pl.markowski.edoctor.model.dto.DoctorDto;
 
 public interface DoctorService {
 
-    public Doctor saveDoctor (Doctor doctor);
+    DoctorDto getDoctorDtoById(Long id);
+
+    public DoctorDto saveDoctor (DoctorDto doctor);
+
+    DoctorDto updateDoctor(DoctorDto doctor);
+
+    void deleteDoctor(Long doctorId);
 }

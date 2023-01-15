@@ -34,11 +34,9 @@ public class VisitServiceImpl implements VisitService {
             Visit visitToUpdate = optionalVisit.get();
             visitToUpdate.setDate(visit.getDate());
             visitToUpdate.setTime(visit.getTime());
-            return repository.save(visitToUpdate);
+            return saveVisit(visitToUpdate);
         } else {
             throw new RuntimeException(String.format("Visit with id %s not found", visit.getId()));
         }
     }
-
-
 }
