@@ -33,7 +33,7 @@ public class PatientController {
     }
 
     @PostMapping
-    public ResponseEntity<PatientDto> addPatient (@RequestBody PatientDto patient) {
+    public ResponseEntity<PatientDto> addPatient(@RequestBody PatientDto patient) {
         try {
             return ResponseEntity.ok(service.savePatient(patient));
         } catch (RuntimeException e) {
@@ -53,7 +53,7 @@ public class PatientController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletePatient(@Positive @PathVariable("id") Long id){
+    public ResponseEntity<String> deletePatient(@Positive @PathVariable("id") Long id) {
         try {
             service.deletePatient(id);
             return ResponseEntity.ok().build();
@@ -67,7 +67,7 @@ public class PatientController {
     }
 
     @PutMapping
-    public ResponseEntity<PatientDto> updatePatient (@RequestBody PatientDto patient) {
+    public ResponseEntity<PatientDto> updatePatient(@RequestBody PatientDto patient) {
         try {
             return ResponseEntity.ok(service.updatePatient(patient));
         } catch (RuntimeException e) {

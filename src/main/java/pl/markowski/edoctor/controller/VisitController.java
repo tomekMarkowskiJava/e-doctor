@@ -29,7 +29,7 @@ public class VisitController {
     }
 
     @PostMapping
-    public ResponseEntity<VisitDto> addVisit (@RequestBody VisitDto visit) {
+    public ResponseEntity<VisitDto> addVisit(@RequestBody VisitDto visit) {
         try {
             return ResponseEntity.ok(service.saveVisit(visit));
         } catch (RuntimeException e) {
@@ -49,7 +49,7 @@ public class VisitController {
     }
 
     @PutMapping
-    public ResponseEntity<VisitDto> updateVisit (@RequestBody VisitDto visit) {
+    public ResponseEntity<VisitDto> updateVisit(@RequestBody VisitDto visit) {
         try {
             return ResponseEntity.ok(service.updateVisit(visit));
         } catch (RuntimeException e) {

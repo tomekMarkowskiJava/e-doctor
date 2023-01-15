@@ -4,6 +4,7 @@ import pl.markowski.edoctor.model.dto.PatientDto;
 import pl.markowski.edoctor.model.entity.Patient;
 
 public class PatientMapper {
+
     public static PatientDto mapToDto(Patient patient) {
         return PatientDto.builder()
                 .id(patient.getId())

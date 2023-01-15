@@ -5,6 +5,7 @@ import pl.markowski.edoctor.model.entity.Doctor;
 
 
 public class DoctorMapper {
+
     public static DoctorDto mapToDto(Doctor doctor) {
         return DoctorDto.builder()
                 .id(doctor.getId())
